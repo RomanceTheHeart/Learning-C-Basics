@@ -1,13 +1,10 @@
 #pragma warning(disable: 4786)
 #include <iostream>
+#include <algorithm>
 #include <vector> 
-#include "algorithm"
-#include <functional>
 #include <ctime> 
 #include<cstdlib> 
-using namespace std; 
-
-class algorithm;
+using namespace std;
 
 int main()
 {
@@ -39,15 +36,23 @@ cout << "Score Found! ";
 }
 else 
 {
-    cout << "Score not found.";
+    cout << "Score not found.\n";
 }
-cout << "Now let's randomize the Scores:";
 
-srand(static_cast<int>(0)); 
+cout << "Now let's randomize the Scores:\n";
+srand(static_cast<unsigned int>( time (0))); 
+random_shuffle(Scores.begin(),Scores.end()); 
+cout << "High Scores:" << endl; 
 
-printf("");
+for(Iter = Scores.begin(); Iter != Scores.end(); ++Iter){
 cout << *Iter << endl; 
-
+}
+cout << "Sorting highscores....\n";
+sort(Scores.begin(), Scores.end());
+cout << "High Scores:\n";
+for(Iter = Scores.begin(); Iter != Scores.end(); ++Iter){
+    cout << *Iter <<endl; 
+}
 
 
 return 0; 
