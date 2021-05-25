@@ -34,11 +34,12 @@ do
             break;
     } 
     else{ break;}
-  
+
+  return response1;
 }
 
 
-while((response1 != 'N') || (response1 != 'n'));
+while((response1 == 'Y') || (response1 == 'y'));
 
 
     return response1; 
