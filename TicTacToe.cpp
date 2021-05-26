@@ -261,7 +261,7 @@ void AnnounceWinner(char winner, char computer, char human)
     }
     else
     {
-        cout << "It's a tie :)\n"
+        cout << " It's a tie :)\n"
              << endl;
     }
 }
