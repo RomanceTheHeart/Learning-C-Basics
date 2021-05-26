@@ -24,7 +24,7 @@ const char TIE{'T'};
 const char NO_ONE{'N'};
 void Instructions();
 char AskYesNo(string question);
-int AskNumber(string question, int high, int low = {0});
+int AskNumber(string question, int high, int low = 0);
 char HumanPiece();
 char Opponent(char piece);
 void DisplayBoard(const vector<char> &board);
@@ -37,13 +37,13 @@ void AnnounceWinner(char winner, char computer, char human);
 int main()
 {
     int move;
-    const int NUMSQUARES{9};
+    const int NUMSQUARES = 9;
     vector<char> board(NUMSQUARES, EMPTY);
 
     Instructions();
 
-    char Human={HumanPiece()};
-    char Computer={Opponent(Human)};
+    char Human = {HumanPiece()};
+    char Computer = {Opponent(Human)};
     char turn = {X};
 
     DisplayBoard(board);
@@ -91,7 +91,7 @@ int AskNumber(string question, int high, int low)
     do
     {
         cout << question << "(" << low << "-" << high << ") ";
-        cin >> number; 
+        cin >> number;
     } while (number > high || number < low);
 
     return number;
@@ -139,31 +139,33 @@ void DisplayBoard(const vector<char> &board)
 char Winner(const vector<char> &board)
 {
     // All possible winning rows in an array.
-    const int WINNINGROWS[8][3]={{0, 1, 2},
-                                {3, 4, 5},
-                                {6, 7, 8},
-                                {0, 3, 6},
-                                {1, 4, 7},
-                                {2, 5, 8},
-                                {0, 4, 8},
-                                {2, 4, 6}
-                                };
+    const int WINNINGROWS[8][3] = {{0, 1, 2},
+                                   {3, 4, 5},
+                                   {6, 7, 8},
+                                   {0, 3, 6},
+                                   {1, 4, 7},
+                                   {2, 5, 8},
+                                   {0, 4, 8},
+                                   {2, 4, 6}};
     const int TOTALROWS = 8;
-	//if any winning row has three values that are the same (and not EMPTY),
-	//then we have a winner
+    //if any winning row has three values that are the same (and not EMPTY),
+    //then we have a winner
     for (int row = 0; row < TOTALROWS; ++row)
     {
         if ((board[WINNINGROWS[row][0]] != EMPTY) &&
-         (board[WINNINGROWS[row][0]] == board[WINNINGROWS[row][1]]) &&
+            (board[WINNINGROWS[row][0]] == board[WINNINGROWS[row][1]]) &&
             (board[WINNINGROWS[row][1]] == board[WINNINGROWS[row][2]]))
         {
             return board[WINNINGROWS[row][0]];
         }
     }
     //Since nobody has won, check for a tie. ("no empty spaces left.")
-    if (count(board.begin(), board.end(), EMPTY) == 0){ return TIE;}
-  
-  //since no one has won an it's a tie, the game is still going.
+    if (count(board.begin(), board.end(), EMPTY) == 0)
+    {
+        return TIE;
+    }
+
+    //since no one has won an it's a tie, the game is still going.
     return NO_ONE;
 }
 
@@ -171,17 +173,15 @@ inline bool IsLegal(int move, const vector<char> &board) { return (board[move] =
 
 int HumanMove(const vector<char> &board, char human)
 {
-    int move = AskNumber("Where will you move?", (board.size()));
+    int move = AskNumber("Where will you move?", (board.size() - 1));
     while (!IsLegal(move, board))
     {
         cout << "\nThat square is already occupied.\n";
-        move = AskNumber("Where will you move?: ", (board.size(),-1));
-
+        move = AskNumber("Where will you move?: ", (board.size() - 1));
     }
     cout << "Okay :)\n";
     return move;
 }
-
 
 int ComputerMove(vector<char> board, char computer)
 {
@@ -251,12 +251,12 @@ void AnnounceWinner(char winner, char computer, char human)
 {
     if (winner == computer)
     {
-        cout << winner << " has won! \n"
+        cout << winner << " Beat you! \n"
              << endl;
     }
     else if (winner == human)
     {
-        cout << winner << " has won!!\n"
+        cout << winner << " you win!!\n"
              << endl;
     }
     else
