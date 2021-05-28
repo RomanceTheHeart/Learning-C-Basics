@@ -32,7 +32,7 @@ void Increase(int *const array, const int NUM_ELEMENTS)
 
 void Display(const int *const array, const int NUM_ELEMENTS)
 {
-    //Display the contents of this container.
+    //Display,the contents of this container.
     for (int i{0}; i < NUM_ELEMENTS; ++i)
     {
         cout << array[i] << endl;
