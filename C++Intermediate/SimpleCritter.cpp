@@ -16,9 +16,9 @@ public:
     int GetHunger();
     void SetHunger(int &hunger);
     void DisplayHunger();
-    void DisplayCount();
+    static int DisplayCount();
 
-    static inline int CritterTotal()
+    static inline int IncrementCritter()
     {
         count++;
         return count;
@@ -36,28 +36,31 @@ int Critter::count{0};
 int main()
 {
 
-    Critter crit1;
-    Critter crit2;
-    Critter crit3;
-
+    Critter crit1,crit2,crit3;
+   
+    int hunger = crit3.GetHunger();
+    hunger = 300;
+    crit3.SetHunger(hunger);
+    
     cout << "\nCritter: ";
-    crit1.DisplayCount();
+    cout <<Critter::IncrementCritter(); 
     crit1.Greet();
 
     cout << "\nCritter: ";
-    crit2.DisplayCount();
+    cout<<Critter::IncrementCritter();
     crit2.Greet();
 
     cout << "\nCritter: ";
-    crit3.DisplayCount();
+    cout <<Critter::IncrementCritter();
     crit3.Greet();
-    
+  
+    cout << "There are: " << Critter::DisplayCount() << " Critter's on the board."  << endl; 
     return 0; 
 }
 void Critter::Greet()
 {
     cout << "\nHi, I'm a critter."
-         << " My hunger level is: " << Critter::IncrementHunger() << " now\n";
+         << " My hunger level is: " << IncrementHunger() << " now\n";
 }
 
 int Critter::GetHunger()
@@ -75,14 +78,15 @@ void Critter::SetHunger(int &hunger)
     else if (hunger < 0){ hunger = 0; cout << "Critter Died"; }
     else
     {
-        hunger = Hunger;
+        Hunger = hunger;
     }
+
 }
 
-void Critter::DisplayCount()
+int Critter::DisplayCount()
 {
-    int crittertotal = CritterTotal();
-    cout << crittertotal;
+
+    return count; 
 }
 
 void Critter::DisplayHunger()
