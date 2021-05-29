@@ -1,48 +1,92 @@
 /* This file will be uploaded to the  C++ intermidiate repository. 
 Simple Critter, demonstrates creating a new type. 
 */
-#include<iostream> 
-using namespace std; 
+#include <iostream>
+using namespace std;
 class Critter
 {
-    private:
-    public:
-      static int count;
-    Critter(){}
-     int Hunger{0};
+private:
+    int Hunger{0};
+    static int count;
+
+public:
+    Critter() : Hunger(100) { cout << "A new critter is born.\n"; }
+    ~Critter() { "Ah!"; }
     void Greet();
-   static inline int CritterTotal(){count ++; return count;}
-    inline int IncrementHunger(){Hunger++; return Hunger;}
- void DisplayCount(){int crittertotal = CritterTotal(); cout << crittertotal;}
-  void DisplayHunger(){int critterHunger = IncrementHunger(); cout << critterHunger;}
+    int GetHunger();
+    void SetHunger(int &hunger);
+    void DisplayHunger();
+    void DisplayCount();
+
+    static inline int CritterTotal()
+    {
+        count++;
+        return count;
+    }
+    inline int IncrementHunger()
+
+    {
+        Hunger++;
+        return Hunger;
+    }
 };
-;
- int Critter::count{0};
+
+int Critter::count{0};
+
 int main()
 {
-    
-    Critter crit1; 
+
+    Critter crit1;
     Critter crit2;
     Critter crit3;
-    
-    crit1.Hunger={30};
-    crit2.Hunger={60};
-    crit3.Hunger = {100}; 
- 
-    cout << "Critter: ";
+
+    cout << "\nCritter: ";
     crit1.DisplayCount();
     crit1.Greet();
-    
-    cout << "Critter: ";
+
+    cout << "\nCritter: ";
     crit2.DisplayCount();
     crit2.Greet();
 
-    cout << "Critter: ";
+    cout << "\nCritter: ";
     crit3.DisplayCount();
     crit3.Greet();
+    
+    return 0; 
 }
 void Critter::Greet()
 {
-    cout << "\nHi, I'm a critter." 
-    << " My hunger level is: " << Critter::IncrementHunger() << " now\n";
+    cout << "\nHi, I'm a critter."
+         << " My hunger level is: " << Critter::IncrementHunger() << " now\n";
+}
+
+int Critter::GetHunger()
+{
+    return Hunger;
+}
+void Critter::SetHunger(int &hunger)
+{
+    if (hunger == 0)
+    {
+        cout << "Critter Died. \n";
+
+
+    }
+    else if (hunger < 0){ hunger = 0; cout << "Critter Died"; }
+    else
+    {
+        hunger = Hunger;
+    }
+}
+
+void Critter::DisplayCount()
+{
+    int crittertotal = CritterTotal();
+    cout << crittertotal;
+}
+
+void Critter::DisplayHunger()
+{
+    int critterHunger = IncrementHunger();
+    cout << critterHunger;
 }
