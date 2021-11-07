@@ -1,21 +1,33 @@
 #include <iostream>
-
+#include <stdio.h>
+#include <array>
 
 using namespace std;
 
 int main()
 {
-    string names[5]{"andrew","tom","Derrick","Sara","Megan"};
+    int limit{6};
+    char input[100];
+    char response;
 
-    for(int i{0}; i <sizeof(names); i++)
+    // should be space for the null charcter.
+    cout << "Enter you name: " << endl;
+
+    for (int j{0}; j < sizeof(input); j++)
     {
-        cout << names[i] << endl; 
-        cout << endl;
-    }
-    
-    
-    
-    
-    return 0; 
+        cin.getline(input, 100);
 
+        if (sizeof(response) < input[j])
+        {
+
+            response = input[j];
+            printf("%c", response);
+        }
+        else{break;}
+    }
+
+
+    system("pause");
+
+    return 0;
 }
