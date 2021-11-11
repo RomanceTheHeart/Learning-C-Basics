@@ -12,21 +12,27 @@ int GetLength(char input[]) // make sure function takes in the same value as int
     
 
     for ( int c = {0}; input[c] != '\0'; c++)
-    {count = input[c];}
-        return count++;
+    {
+     count++; 
+        
+    }
+  
+           return count;
 }
 
 char ReverseString(char input[])
 {
     int start = input[0];
     int end = {GetLength(input)};
-char result; 
+    char result; 
 
-  while(start < end)
+  while(start <= end)
   {
-        swap(end,start);
+     start++; 
+     end--; 
         result = input[start,end]; 
-        cout << "Fuck this!!" << endl; 
+        cout << result; 
+        cout << "\nFuck this!!" << endl; 
 
   }
 
@@ -50,14 +56,18 @@ void Print(char input[])
 }
 int main()
 {
-    int limit{2};
+
+
+    int limit{1};
+    int count; 
+
     char input[100];
+
     char response;
 
-    // should be space for the null charcter.
     cout << "Enter you name: " << endl;
 
-    for( int j{0}; j < limit; j++)
+    for( int j{0}; j != limit; j++)
     {
         cin.getline(input, 100);
 
@@ -65,8 +75,11 @@ int main()
         ReverseString(input); 
             
           Print(input); 
-        
 
+          cout << "\nThe length of your string is: "; 
+          count = GetLength(input); 
+          cout << count << "\n"; 
+        
     }
 
     system("pause");
