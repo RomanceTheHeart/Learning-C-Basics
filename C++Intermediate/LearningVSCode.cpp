@@ -15,11 +15,21 @@ int GetLength(char input[]) // make sure function takes in the same value as int
         return count++;
 }
 
-void ReverseString(char input[])
+char ReverseString(char input[])
 {
-    int start = 0;
+    int start = input[0];
     int end = {GetLength(input)};
-    swap(start, end);
+char result; 
+
+  while(start < end)
+  {
+        swap(end,start);
+        result = input[start,end]; 
+        cout << "Fuck this!!" << endl; 
+        
+  }
+
+  return result; 
 }
 
 void Print(char input[])
@@ -51,7 +61,7 @@ int main()
         cin.getline(input, 100);
 
        
-    
+        ReverseString(input); 
             
           Print(input); 
         
