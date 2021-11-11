@@ -1,5 +1,6 @@
 #include <iostream>
 #include <stdio.h>
+#include <cstring>
 #include "string"
 #include <array>
 
@@ -26,7 +27,7 @@ char result;
         swap(end,start);
         result = input[start,end]; 
         cout << "Fuck this!!" << endl; 
-        
+
   }
 
   return result; 
