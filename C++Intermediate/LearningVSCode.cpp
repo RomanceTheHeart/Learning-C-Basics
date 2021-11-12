@@ -3,19 +3,36 @@
 #include <cstring>
 #include "string"
 #include <array>
-
 using namespace std;
 
 int GetLength(char input[]) // make sure function takes in the same value as intended.
 {
   int count{0};
+  int amount{0};
 
-  for (int c = {0}; input[c] != '\0'; c++)
+  for (int c = {0}; c != '\0'; c++)
   {
+   
     count++;
-  }
+     if(count == '\0')
+    {
+    
+      return count;
+    }
 
-  return count;
+    else if(count > 0)
+    {
+
+    for (amount = input[count]; amount < strlen(input); amount++)
+    {
+
+            
+      amount++;
+    }
+
+    }
+  }
+  return amount;
 }
 
 void ReverseString(char input[])
@@ -24,27 +41,20 @@ void ReverseString(char input[])
   int end = {GetLength(input)};
   char result;
 
-  while (start > end )
+  while (start > end)
   {
 
     swap(input[start], input[end]);
 
-
-
-
     start++;
     end--;
-        if (start == '\0' || end == '\0')
+    if (start == '\0' || end == '\0')
     {
       break;
     }
-     
 
-  cout << input[start,end];
-
+    cout << input[start, end];
   }
-  
-
 }
 
 void Print(char input[])
@@ -56,6 +66,7 @@ void Print(char input[])
     printf("%c", input[i]);
   }
 }
+
 int main()
 {
 
@@ -66,7 +77,7 @@ int main()
 
   char response;
 
-  cout << "Enter you name: " << endl;
+  cout << " Enter you name: " << endl;
 
   for (int j{0}; j != limit; j++)
   {
@@ -81,6 +92,7 @@ int main()
     count = GetLength(input);
 
     cout << count << "\n";
+
   }
 
   system("pause");
