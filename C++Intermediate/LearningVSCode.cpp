@@ -5,58 +5,30 @@
 #include <array>
 using namespace std;
 
-int GetLength(char input[]) // make sure function takes in the same value as intended.
+int GetAmount(char amount[])
 {
-  int count{0};
-  int amount{0};
+  int total{0};
 
-  for (int c = {0}; c != '\0'; c++)
+  for (int g = {0}; g < amount[g]; g++)
   {
-   
-    count++;
-     if(count == '\0')
-    {
-    
-      return count;
-    }
-
-    else if(count > 0)
-    {
-
-    for (amount = input[count]; amount < strlen(input); amount++)
-    {
-
-            
-      amount++;
-    }
-
-    }
+    total++;
   }
-  return amount;
+
+  return total;
 }
 
-void ReverseString(char input[])
+int GetIndex(char input[]) // make sure function takes in the same value as intended.
 {
-  int start = input[0];
-  int end = {GetLength(input)};
-  char result;
+  int index{0};
 
-  while (start > end)
+  for (int c = {0}; c < strlen(input); c++)
   {
 
-    swap(input[start], input[end]);
-
-    start++;
-    end--;
-    if (start == '\0' || end == '\0')
-    {
-      break;
-    }
-
-    cout << input[start, end];
+    index++;
   }
-}
 
+  return index;
+}
 void Print(char input[])
 {
 
@@ -67,11 +39,29 @@ void Print(char input[])
   }
 }
 
+char ReverseString(char input[])
+{
+  int start = 0;
+  int end = {GetIndex(input)};
+  char result;
+
+  while (start != '\0' && end != '\0')
+  {
+
+
+    result = input[start, end];
+    swap(input[start], input[end]);
+    start++;
+    end--;
+  }
+  return result;
+}
+
 int main()
 {
 
   int limit{1};
-  int count;
+  int count{0};
 
   char input[100];
 
@@ -81,19 +71,17 @@ int main()
 
   for (int j{0}; j != limit; j++)
   {
+
     cin.getline(input, 100);
+    count = GetAmount(input);
 
-    ReverseString(input);
-
-    Print(input);
-
-    cout << "\nThe length of your string is: ";
-
-    count = GetLength(input);
-
-    cout << count << "\n";
-
+    break;
   }
+  ReverseString(input);
+  Print(input);
+  cout << "\nThe length of your string is: ";
+
+  cout << count << "\n";
 
   system("pause");
 }
