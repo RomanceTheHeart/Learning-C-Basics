@@ -42,19 +42,22 @@ void Print(char input[])
 char ReverseString(char input[])
 {
   int start = 0;
-  int end = {GetIndex(input)};
-  char result;
+  int end = {GetIndex(input)-1};
+  char *result;
+  result = &input[start,end];
+while(start != '\0' || end !='\0')
+{
+swap(input[start],input[end]); 
+start++; 
+end--;
 
-  while (start != '\0' && end != '\0')
-  {
+break;
+}
 
 
-    result = input[start, end];
-    swap(input[start], input[end]);
-    start++;
-    end--;
-  }
-  return result;
+
+
+  return * result;
 }
 
 int main()
