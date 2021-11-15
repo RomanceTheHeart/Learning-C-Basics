@@ -48,9 +48,9 @@ char ReverseString(char input[])
 while(start != '\0' || end !='\0')
 {
 swap(input[start],input[end]); 
-start++; 
-end--;
-
+//start++; 
+//end--;
+//result--; 
 break;
 }
 
