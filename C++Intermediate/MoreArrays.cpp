@@ -8,8 +8,8 @@ using namespace std;
 
 // This lesson focuses on 2d arrays.
 
-const int numRows{3};
-const int numCollums{3};
+const int numRows{2};
+const int numCollums{2};
 
 int GetIndex(char input[]) // make sure function takes in the same value as intended.
 {
@@ -86,13 +86,15 @@ int main()
 
     for (int Y{0}; Y < numRows; Y++)
     {
-        getline(cin,one); 
+            getline(cin,one);
+    
 
         for (int Z{0}; Z < numCollums; Z++)
         {
-
+         
             getline(cin,two);
         }
+        break; 
     }
 
     PrintArray(one, two);
