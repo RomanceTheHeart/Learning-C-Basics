@@ -5,6 +5,10 @@
         "string": "cpp",
         "cstring": "cpp",
         "ostream": "cpp",
-        "istream": "cpp"
+        "istream": "cpp",
+        "cstdlib": "cpp",
+        "system_error": "cpp",
+        "xutility": "cpp",
+        "xstring": "cpp"
     }
 }

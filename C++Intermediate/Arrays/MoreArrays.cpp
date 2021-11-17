@@ -1,4 +1,5 @@
 #include <iostream>
+#include <Windows.h>
 #include <stdio.h>
 #include <cstring>
 #include "string"
@@ -7,6 +8,8 @@
 using namespace std;
 
 // This lesson focuses on 2d arrays.
+// In this  lesson I learned alot about how character arrays
+// differ from string arrays.
 
 const int numRows{2};
 const int numCollums{2};
@@ -24,81 +27,85 @@ int GetIndex(char input[]) // make sure function takes in the same value as inte
     return index;
 }
 
-void PrintArray(char one, char two)
+void PrintArray(int num)
 {
-    const int *row = &numRows;
-    const int *collum = &numCollums;
-    
-    char result[numRows][numCollums]{{one}, {two}};
 
-    int firstindex = 0;
-    int lastindex = GetIndex(*result);
-
-    for (int i{0}; i < *row; i++)
+    for (int i{0}; i < 5; i++)
     {
-         
 
-        for (int j{0}; j < *collum; j++)
+        for (int j{0}; j < 6; j++)
         {
-                    
-              cout << *result << " ";
-
-  
-          
+            num++;
+            cout << num << " ";
         }
         cout << endl;
-
-     
     }
-    
+}
+
+void PrintArray(char one)
+{
+
+    for (int i{0}; i < size_t(one); i++)
+    {
+            one++;
+              
+
+        for (int j{0}; j < size_t(one); j++)
+        {
+                one++;
+        }
+        cout << endl;
+        continue;
+        break;
+    }
+      cout << one << " ";
 }
 
 void PrintArray(string one, string two)
 {
+
     for (int i{0}; i < numRows; i++)
     {
-         
 
         for (int j{0}; j < numCollums; j++)
         {
-                    
-              cout << one << " ";
-              cout << two;
 
-  
-          
+            cout << one << " ";
+            cout << two;
         }
         cout << endl;
-
-     
     }
 }
+
 int main()
 {
-    char w(0);
-    char ow(0);
-    
+
+    int numbers{0};
+    char syllables('0');
+
     string one;
     string two;
 
-    
-    cout << "Enter number of Rows and Collums: ";
+    PrintArray(syllables);
+    cout << endl;
+    cout << endl;
+
+    cout << "Enter Your Name : ";
 
     for (int Y{0}; Y < numRows; Y++)
     {
-            getline(cin,one);
-    
+        getline(cin, one);
 
         for (int Z{0}; Z < numCollums; Z++)
         {
-         
-            getline(cin,two);
+
+            getline(cin, two);
         }
-        break; 
+        break;
     }
 
     PrintArray(one, two);
-
+    PrintArray(numbers);
     printf("\n");
 
     system("pause");
